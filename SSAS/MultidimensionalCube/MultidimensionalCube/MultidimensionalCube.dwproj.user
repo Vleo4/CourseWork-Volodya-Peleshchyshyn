@@ -1,0 +1,39 @@
+<AnalysisServicesUserConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>Localhost</Id>
+            <Name>Localhost</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6YEc3pnGgky7+eQNfB6MIwAAAAAUAAAATABvAGMAYQBsAGgAbwBzAHQAAAAQZgAAAAEAACAAAAD/CezFBe/WKNcfG7GnCNUWs1QtXHh3gZBYDq+13DrrggAAAAAOgAAAAAIAACAAAACumwO0ffG3a8NSztIC3JCZidPlx9ug7y9pkETRQLKaHSAAAACSU+l/aY/8uv8ueeMrWgbY8+CQxAZGvLyEGXVssm9nREAAAAAFLsmlhV67FdwjcnXUsaY0dNqHn/+t3ozVmVuV5aehPTNZQTmp0LhpZpcORaqFLzyc32SsoI9J7tGpiFp1NbL7</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Sales DW login pass</Id>
+            <Name>Sales DW login pass</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6YEc3pnGgky7+eQNfB6MIwAAAAAoAAAAUwBhAGwAZQBzACAARABXACAAbABvAGcAaQBuACAAcABhAHMAcwAAABBmAAAAAQAAIAAAAGYfuEh+ZKPtq6IpOYC4ilTtkNEoXz44S1tKz3H6yfQ7AAAAAA6AAAAAAgAAIAAAAA8S9gpv0vUBwRRTSVsC9nt0dOrzOC0VJ3VZJTcfQNyOMAAAAJKtYeagy+91pMZEvXbTd4WlBuCAqy4nPYViLMDVZmdjdqWF9f9XdAJuHmJNLW1PwkAAAABGKdHK0HQn4xIl2BprVq6McpslpkTDfq3MbnErFCoGpjwR5RlxR+1mIUeqXEmV1jxT8A6OW/FD86QFR9fs0Ef/</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>Localhost</Id>
+            <Name>Localhost</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6YEc3pnGgky7+eQNfB6MIwAAAAAUAAAATABvAGMAYQBsAGgAbwBzAHQAAAAQZgAAAAEAACAAAADn/3vURmGohFgVjiA3WP7eeqdft0DCMHyO2x57U0wTHwAAAAAOgAAAAAIAACAAAAAgVW2bUPcfq6hu9F25aSOklYBwkygobvvRUJ6ClkdmahAAAACJxI6Cu7kZHqWH+7RkuHFMQAAAAJ8kxAaBR5FhK980i6RIvTaKF6ie1jv//K7ygcLFw2eo3Ie9Mjl2W0bofnwvV/MgjVp+H6OWyqoZt+AnEO9+sWM=</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>Sales DW login pass</Id>
+            <Name>Sales DW login pass</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6YEc3pnGgky7+eQNfB6MIwAAAAAoAAAAUwBhAGwAZQBzACAARABXACAAbABvAGcAaQBuACAAcABhAHMAcwAAABBmAAAAAQAAIAAAAHpcaj1cgRON0uzZ/TOjbSaqgUnPmyUVMWX5pH9hZgvVAAAAAA6AAAAAAgAAIAAAAGZVJcb2+e4JoSzHIXvACia/XDT9Q4k4UYZJ4gygAuYHEAAAAOy9FeniP83z4q9x7bq1EFdAAAAAsC1kZpHmem+FMFQi1AW3m4jbKvCRVtzhsa1elp9ZI7LCBsOMYNY3rlUop+2QXSijlIrN47kgoONoAYLMiru9Gw==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <TargetServer>localhost</TargetServer>
+        <TargetDatabase>MultidimensionalCube</TargetDatabase>
+        <StartObject>
+          <ObjectId></ObjectId>
+          <ObjectType>Current</ObjectType>
+        </StartObject>
+      </Options>
+    </Configuration>
+  </Configurations>
+</AnalysisServicesUserConfiguration>

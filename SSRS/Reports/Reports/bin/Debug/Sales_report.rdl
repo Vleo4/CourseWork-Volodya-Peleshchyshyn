@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" MustUnderstand="df">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>d299d648-b668-4cc9-95db-f1c0de68db7f</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="FromDimSalesId">
+            <Value>=Parameters!FromDimSalesId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="ToDimSalesId">
+            <Value>=Parameters!ToDimSalesId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>DEFINE VAR vFromDimSalesId1 = IF(PATHLENGTH(@FromDimSalesId) = 1, IF(@FromDimSalesId &lt;&gt; "", @FromDimSalesId, BLANK()), IF(PATHITEM(@FromDimSalesId, 2) &lt;&gt; "", PATHITEM(@FromDimSalesId, 2), BLANK()))
+VAR vFromDimSalesId1ALL = PATHLENGTH(@FromDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@FromDimSalesId, 1, 1) &lt; 1
+VAR vToDimSalesId1 = IF(PATHLENGTH(@ToDimSalesId) = 1, IF(@ToDimSalesId &lt;&gt; "", @ToDimSalesId, BLANK()), IF(PATHITEM(@ToDimSalesId, 2) &lt;&gt; "", PATHITEM(@ToDimSalesId, 2), BLANK()))
+VAR vToDimSalesId1ALL = PATHLENGTH(@ToDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@ToDimSalesId, 1, 1) &lt; 1
+EVALUATE SUMMARIZECOLUMNS('Dim Sales'[Id], 'Dim Sales'[Description], 'Dim Sales'[Quantity], FILTER(VALUES('Dim Sales'[Id]), (vFromDimSalesId1ALL || 'Dim Sales'[Id] &gt;= VALUE(vFromDimSalesId1)) &amp;&amp; (vToDimSalesId1ALL || 'Dim Sales'[Id] &lt;= VALUE(vToDimSalesId1))))</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>DAX</CommandType>
+            <QuerySpecification xsi:type="MDXQuerySpecification">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Dim Sales</DimensionName>
+                      <HierarchyName>Id</HierarchyName>
+                      <HierarchyUniqueName>[Dim Sales].[Id]</HierarchyUniqueName>
+                      <LevelName>Id</LevelName>
+                      <UniqueName>[Dim Sales].[Id].[Id]</UniqueName>
+                    </ID>
+                    <ItemCaption>Id</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Dim Sales</DimensionName>
+                      <HierarchyName>Description</HierarchyName>
+                      <HierarchyUniqueName>[Dim Sales].[Description]</HierarchyUniqueName>
+                      <LevelName>Description</LevelName>
+                      <UniqueName>[Dim Sales].[Description].[Description]</UniqueName>
+                    </ID>
+                    <ItemCaption>Description</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Level">
+                      <DimensionName>Dim Sales</DimensionName>
+                      <HierarchyName>Quantity</HierarchyName>
+                      <HierarchyUniqueName>[Dim Sales].[Quantity]</HierarchyUniqueName>
+                      <LevelName>Quantity</LevelName>
+                      <UniqueName>[Dim Sales].[Quantity].[Quantity]</UniqueName>
+                    </ID>
+                    <ItemCaption>Quantity</ItemCaption>
+                    <UniqueName>true</UniqueName>
+                  </Item>
+                </Items>
+              </Select>
+              <AutoExecute>false</AutoExecute>
+              <From>SalesDW</From>
+              <Filter>
+                <FilterItems>
+                  <FilterItem>
+                    <HierarchyUniqueName>[Dim Sales].[Id]</HierarchyUniqueName>
+                    <Condition xsi:type="Range">
+                      <Basis>Member</Basis>
+                      <From>[Dim Sales].[Id].&amp;[1]</From>
+                      <FromParametrized>true</FromParametrized>
+                      <To>[Dim Sales].[Id].&amp;[100]</To>
+                      <ToParametrized>true</ToParametrized>
+                    </Condition>
+                  </FilterItem>
+                </FilterItems>
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties>
+                <IncludeMemberValue>true</IncludeMemberValue>
+              </QueryProperties>
+            </QuerySpecification>
+            <Query>
+              <Statement>DEFINE VAR vFromDimSalesId1 = IF(PATHLENGTH(@FromDimSalesId) = 1, IF(@FromDimSalesId &lt;&gt; "", @FromDimSalesId, BLANK()), IF(PATHITEM(@FromDimSalesId, 2) &lt;&gt; "", PATHITEM(@FromDimSalesId, 2), BLANK()))
+VAR vFromDimSalesId1ALL = PATHLENGTH(@FromDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@FromDimSalesId, 1, 1) &lt; 1
+VAR vToDimSalesId1 = IF(PATHLENGTH(@ToDimSalesId) = 1, IF(@ToDimSalesId &lt;&gt; "", @ToDimSalesId, BLANK()), IF(PATHITEM(@ToDimSalesId, 2) &lt;&gt; "", PATHITEM(@ToDimSalesId, 2), BLANK()))
+VAR vToDimSalesId1ALL = PATHLENGTH(@ToDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@ToDimSalesId, 1, 1) &lt; 1
+EVALUATE SUMMARIZECOLUMNS('Dim Sales'[Id], 'Dim Sales'[Description], 'Dim Sales'[Quantity], FILTER(VALUES('Dim Sales'[Id]), (vFromDimSalesId1ALL || 'Dim Sales'[Id] &gt;= VALUE(vFromDimSalesId1)) &amp;&amp; (vToDimSalesId1ALL || 'Dim Sales'[Id] &lt;= VALUE(vToDimSalesId1))))</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>FromDimSalesId</Name>
+                  <Usage>RangeFrom</Usage>
+                  <DefaultValues>
+                    <DefaultValue>1|1</DefaultValue>
+                  </DefaultValues>
+                  <Caption>From Id</Caption>
+                  <HierarchyUniqueName>[Dim Sales].[Id]</HierarchyUniqueName>
+                  <ParameterValuesQuery>
+                    <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0")), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</Statement>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                  <AllowBlank>true</AllowBlank>
+                </ParameterDefinition>
+                <ParameterDefinition>
+                  <Name>ToDimSalesId</Name>
+                  <Usage>RangeTo</Usage>
+                  <DefaultValues>
+                    <DefaultValue>1|100</DefaultValue>
+                  </DefaultValues>
+                  <Caption>To Id</Caption>
+                  <HierarchyUniqueName>[Dim Sales].[Id]</HierarchyUniqueName>
+                  <ParameterValuesQuery>
+                    <Statement>DEFINE VAR vFromDimSalesId1 = IF(PATHLENGTH(@FromDimSalesId) = 1, IF(@FromDimSalesId &lt;&gt; "", @FromDimSalesId, BLANK()), IF(PATHITEM(@FromDimSalesId, 2) &lt;&gt; "", PATHITEM(@FromDimSalesId, 2), BLANK()))
+VAR vFromDimSalesId1ALL = PATHLENGTH(@FromDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@FromDimSalesId, 1, 1) &lt; 1
+EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0"), FILTER(VALUES('Dim Sales'[Id]), (vFromDimSalesId1ALL || 'Dim Sales'[Id] &gt;= VALUE(vFromDimSalesId1)))), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</Statement>
+                    <ParameterizedStatement>
+                      <Statement>DEFINE VAR vFromDimSalesId1 = IF(PATHLENGTH(@FromDimSalesId) = 1, IF(@FromDimSalesId &lt;&gt; "", @FromDimSalesId, BLANK()), IF(PATHITEM(@FromDimSalesId, 2) &lt;&gt; "", PATHITEM(@FromDimSalesId, 2), BLANK()))
+VAR vFromDimSalesId1ALL = PATHLENGTH(@FromDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@FromDimSalesId, 1, 1) &lt; 1
+EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0"), FILTER(VALUES('Dim Sales'[Id]), (vFromDimSalesId1ALL || 'Dim Sales'[Id] &gt;= VALUE(vFromDimSalesId1)))), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</Statement>
+                      <ReferencedParameters>
+                        <ReferencedParameter>
+                          <Name>FromDimSalesId</Name>
+                        </ReferencedParameter>
+                      </ReferencedParameters>
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                  <AllowBlank>true</AllowBlank>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Dim Sales[Id]</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Description">
+          <DataField>Dim Sales[Description]</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Dim Sales[Quantity]</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="FromDimSalesId">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0")), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>DAX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>ParameterCaption</MeasureName>
+                      <UniqueName>[Measures].[ParameterCaption]</UniqueName>
+                    </ID>
+                    <ItemCaption>ParameterCaption</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>ParameterValue</MeasureName>
+                      <UniqueName>[Measures].[ParameterValue]</UniqueName>
+                    </ID>
+                    <ItemCaption>ParameterValue</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>ParameterLevel</MeasureName>
+                      <UniqueName>[Measures].[ParameterLevel]</UniqueName>
+                    </ID>
+                    <ItemCaption>ParameterLevel</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <AutoExecute>false</AutoExecute>
+              <From>SalesDW</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0")), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</Statement>
+              <ParameterDefinitions />
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+        <rd:AutoGenerated>true</rd:AutoGenerated>
+        <rd:Hidden>true</rd:Hidden>
+      </Query>
+      <Fields>
+        <Field Name="ParameterCaption">
+          <DataField>[ParameterCaption]</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterValue">
+          <DataField>[ParameterValue]</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterLevel">
+          <DataField>[ParameterLevel]</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterCaptionIndented">
+          <Value>=Space(3*Fields!ParameterLevel.Value) + Fields!ParameterCaption.Value</Value>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="ToDimSalesId">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="FromDimSalesId">
+            <Value>=Parameters!FromDimSalesId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>DEFINE VAR vFromDimSalesId1 = IF(PATHLENGTH(@FromDimSalesId) = 1, IF(@FromDimSalesId &lt;&gt; "", @FromDimSalesId, BLANK()), IF(PATHITEM(@FromDimSalesId, 2) &lt;&gt; "", PATHITEM(@FromDimSalesId, 2), BLANK()))
+VAR vFromDimSalesId1ALL = PATHLENGTH(@FromDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@FromDimSalesId, 1, 1) &lt; 1
+EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0"), FILTER(VALUES('Dim Sales'[Id]), (vFromDimSalesId1ALL || 'Dim Sales'[Id] &gt;= VALUE(vFromDimSalesId1)))), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+            <CommandType>DAX</CommandType>
+            <Type>Query</Type>
+            <QuerySpecification xsi:type="MDXQuerySpecification">
+              <Select>
+                <Items>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>ParameterCaption</MeasureName>
+                      <UniqueName>[Measures].[ParameterCaption]</UniqueName>
+                    </ID>
+                    <ItemCaption>ParameterCaption</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>ParameterValue</MeasureName>
+                      <UniqueName>[Measures].[ParameterValue]</UniqueName>
+                    </ID>
+                    <ItemCaption>ParameterValue</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                  <Item>
+                    <ID xsi:type="Measure">
+                      <MeasureName>ParameterLevel</MeasureName>
+                      <UniqueName>[Measures].[ParameterLevel]</UniqueName>
+                    </ID>
+                    <ItemCaption>ParameterLevel</ItemCaption>
+                    <FormattedValue>true</FormattedValue>
+                  </Item>
+                </Items>
+              </Select>
+              <AutoExecute>false</AutoExecute>
+              <From>SalesDW</From>
+              <Filter>
+                <FilterItems />
+              </Filter>
+              <Calculations />
+              <Aggregates />
+              <QueryProperties />
+            </QuerySpecification>
+            <Query>
+              <Statement>DEFINE VAR vFromDimSalesId1 = IF(PATHLENGTH(@FromDimSalesId) = 1, IF(@FromDimSalesId &lt;&gt; "", @FromDimSalesId, BLANK()), IF(PATHITEM(@FromDimSalesId, 2) &lt;&gt; "", PATHITEM(@FromDimSalesId, 2), BLANK()))
+VAR vFromDimSalesId1ALL = PATHLENGTH(@FromDimSalesId) &gt; 1 &amp;&amp; PATHITEM(@FromDimSalesId, 1, 1) &lt; 1
+EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0"), FILTER(VALUES('Dim Sales'[Id]), (vFromDimSalesId1ALL || 'Dim Sales'[Id] &gt;= VALUE(vFromDimSalesId1)))), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</Statement>
+              <ParameterDefinitions>
+                <ParameterDefinition>
+                  <Name>FromDimSalesId</Name>
+                  <Usage>RangeFrom</Usage>
+                  <DefaultValues>
+                    <DefaultValue>1|1</DefaultValue>
+                  </DefaultValues>
+                  <Caption>From Id</Caption>
+                  <HierarchyUniqueName>[Dim Sales].[Id]</HierarchyUniqueName>
+                  <ParameterValuesQuery>
+                    <Statement>EVALUATE SELECTCOLUMNS (ADDCOLUMNS (SUMMARIZECOLUMNS (ROLLUPADDISSUBTOTAL ('Dim Sales'[Id], "h0")), "ParameterLevel", if ([h0], 0, 1)), "ParameterCaption", SWITCH([ParameterLevel], 1, "" &amp; 'Dim Sales'[Id], "All"), "ParameterValue", [ParameterLevel] &amp; "|" &amp; 'Dim Sales'[Id], "ParameterLevel", [ParameterLevel], "'Dim Sales'[Id]", 'Dim Sales'[Id]) order by 'Dim Sales'[Id], [ParameterLevel]</Statement>
+                    <ParameterizedStatement>
+                      <ReferencedParameters />
+                    </ParameterizedStatement>
+                  </ParameterValuesQuery>
+                  <AllowBlank>true</AllowBlank>
+                </ParameterDefinition>
+              </ParameterDefinitions>
+            </Query>
+          </QueryDefinition>
+        </rd:DesignerState>
+        <rd:AutoGenerated>true</rd:AutoGenerated>
+        <rd:Hidden>true</rd:Hidden>
+      </Query>
+      <Fields>
+        <Field Name="ParameterCaption">
+          <DataField>[ParameterCaption]</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterValue">
+          <DataField>[ParameterValue]</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterLevel">
+          <DataField>[ParameterLevel]</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParameterCaptionIndented">
+          <Value>=Space(3*Fields!ParameterLevel.Value) + Fields!ParameterCaption.Value</Value>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Sales_report</Value>
+                    <Style>
+                      <FontFamily>Segoe UI Light</FontFamily>
+                      <FontSize>24pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>textbox1</rd:DefaultName>
+            <Height>0.42in</Height>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="table1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.22in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Id</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#666666</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox2</rd:DefaultName>
+                          <Height>0.22in</Height>
+                          <Width>1in</Width>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Description</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#666666</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox3</rd:DefaultName>
+                          <Height>0.22in</Height>
+                          <Width>1in</Width>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Quantity</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>#666666</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox4</rd:DefaultName>
+                          <Height>0.22in</Height>
+                          <Width>1in</Width>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.21in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Id">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Id.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Id</rd:DefaultName>
+                          <Height>0.21in</Height>
+                          <Width>1in</Width>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Description">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Description.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Description</rd:DefaultName>
+                          <Height>0.21in</Height>
+                          <Width>1in</Width>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Quantity">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Quantity.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <Color>#333333</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Quantity</rd:DefaultName>
+                          <Height>0.21in</Height>
+                          <Width>1in</Width>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="table1_Details_Group">
+                    <DataElementName>Detail</DataElementName>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <DataElementName>Detail_Collection</DataElementName>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>0.42in</Top>
+            <Style />
+          </Tablix>
+        </ReportItems>
+        <Height>0.85in</Height>
+        <Style />
+      </Body>
+      <Width>5in</Width>
+      <Page>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="FromDimSalesId">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1|1</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>From Id</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>FromDimSalesId</DataSetName>
+          <ValueField>ParameterValue</ValueField>
+          <LabelField>ParameterCaptionIndented</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ToDimSalesId">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1|100</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>To Id</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>ToDimSalesId</DataSetName>
+          <ValueField>ParameterValue</ValueField>
+          <LabelField>ParameterCaptionIndented</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>2</NumberOfColumns>
+      <NumberOfRows>1</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>FromDimSalesId</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ToDimSalesId</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Invalid</rd:ReportUnitType>
+  <rd:ReportID>d744b730-fcea-469d-982e-a86b72b9e1f4</rd:ReportID>
+</Report>

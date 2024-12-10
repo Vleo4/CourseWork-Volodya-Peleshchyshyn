@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>EVALUATE SUMMARIZECOLUMNS('Dim Products'[Id], 'Dim Products'[Name], 'Dim Products'[Purchase Price], 'Dim Products'[Sale Price], 'Dim Products'[Dim Categories - Id], 'Dim Products'[Category Name])</CommandText>
+      <rd:DesignerState>
+        <QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition">
+          <CommandType>DAX</CommandType>
+          <QuerySpecification xsi:type="MDXQuerySpecification">
+            <Select>
+              <Items>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Products</DimensionName>
+                    <HierarchyName>Id</HierarchyName>
+                    <HierarchyUniqueName>[Dim Products].[Id]</HierarchyUniqueName>
+                    <LevelName>Id</LevelName>
+                    <UniqueName>[Dim Products].[Id].[Id]</UniqueName>
+                  </ID>
+                  <ItemCaption>Id</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Products</DimensionName>
+                    <HierarchyName>Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Products].[Name]</HierarchyUniqueName>
+                    <LevelName>Name</LevelName>
+                    <UniqueName>[Dim Products].[Name].[Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Products</DimensionName>
+                    <HierarchyName>Purchase Price</HierarchyName>
+                    <HierarchyUniqueName>[Dim Products].[Purchase Price]</HierarchyUniqueName>
+                    <LevelName>Purchase Price</LevelName>
+                    <UniqueName>[Dim Products].[Purchase Price].[Purchase Price]</UniqueName>
+                  </ID>
+                  <ItemCaption>Purchase Price</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Products</DimensionName>
+                    <HierarchyName>Sale Price</HierarchyName>
+                    <HierarchyUniqueName>[Dim Products].[Sale Price]</HierarchyUniqueName>
+                    <LevelName>Sale Price</LevelName>
+                    <UniqueName>[Dim Products].[Sale Price].[Sale Price]</UniqueName>
+                  </ID>
+                  <ItemCaption>Sale Price</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Products</DimensionName>
+                    <HierarchyName>Dim Categories - Id</HierarchyName>
+                    <HierarchyUniqueName>[Dim Products].[Dim Categories - Id]</HierarchyUniqueName>
+                    <LevelName>Dim Categories - Id</LevelName>
+                    <UniqueName>[Dim Products].[Dim Categories - Id].[Dim Categories - Id]</UniqueName>
+                  </ID>
+                  <ItemCaption>Dim Categories - Id</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+                <Item>
+                  <ID xsi:type="Level">
+                    <DimensionName>Dim Products</DimensionName>
+                    <HierarchyName>Category Name</HierarchyName>
+                    <HierarchyUniqueName>[Dim Products].[Category Name]</HierarchyUniqueName>
+                    <LevelName>Category Name</LevelName>
+                    <UniqueName>[Dim Products].[Category Name].[Category Name]</UniqueName>
+                  </ID>
+                  <ItemCaption>Category Name</ItemCaption>
+                  <UniqueName>true</UniqueName>
+                </Item>
+              </Items>
+            </Select>
+            <AutoExecute>false</AutoExecute>
+            <From>SalesDW</From>
+            <Filter>
+              <FilterItems />
+            </Filter>
+            <Calculations />
+            <Aggregates />
+            <QueryProperties>
+              <IncludeMemberValue>true</IncludeMemberValue>
+            </QueryProperties>
+          </QuerySpecification>
+          <Query>
+            <Statement>EVALUATE SUMMARIZECOLUMNS('Dim Products'[Id], 'Dim Products'[Name], 'Dim Products'[Purchase Price], 'Dim Products'[Sale Price], 'Dim Products'[Dim Categories - Id], 'Dim Products'[Category Name])</Statement>
+            <ParameterDefinitions />
+          </Query>
+        </QueryDefinition>
+      </rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="Id">
+        <DataField>Dim Products[Id]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Name">
+        <DataField>Dim Products[Name]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Purchase_Price">
+        <DataField>Dim Products[Purchase Price]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Sale_Price">
+        <DataField>Dim Products[Sale Price]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Dim_Categories___Id">
+        <DataField>Dim Products[Dim Categories - Id]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Category_Name">
+        <DataField>Dim Products[Category Name]</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

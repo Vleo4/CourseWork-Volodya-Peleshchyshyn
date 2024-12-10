@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.SalesDatabase"
+  DTS:DTSID="{F357BB02-DFCD-4E18-9745-0487181D33D9}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=SalesDatabase;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Integration Services Project-{F357BB02-DFCD-4E18-9745-0487181D33D9}localhost.SalesDatabase;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
